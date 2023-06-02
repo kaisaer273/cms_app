@@ -44,19 +44,20 @@ class MedicineCard extends StatelessWidget {
           ],
         ),
         trailing: GestureDetector(
-          onTap: () {
-            cartController.addMedicine(MedicineModel.medicines[index]);
-            print(
-                cartController.medicinesInCart[MedicineModel.medicines[index]]);
-          },
-          child: (cartController.medicinesInCart
-                  .containsKey(MedicineModel.medicines[index]))
-              ? const Icon(
-                  Icons.assignment_add,
-                  color: Colors.blue,
-                )
-              : const Icon(Icons.assignment_add),
-        ),
+            onTap: () {
+              cartController.addMedicine(MedicineModel.medicines[index]);
+              print(cartController
+                  .medicinesInCart[MedicineModel.medicines[index]]);
+            },
+            child: Obx(
+              () => (cartController.medicinesInCart
+                      .containsKey(MedicineModel.medicines[index]))
+                  ? const Icon(
+                      Icons.assignment_add,
+                      color: Colors.blue,
+                    )
+                  : const Icon(Icons.assignment_add),
+            )),
       ),
     );
   }
