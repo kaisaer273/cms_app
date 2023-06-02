@@ -1,5 +1,8 @@
-import 'package:cms_app/models/medicine_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:cms_app/controllers/cart_controller.dart';
+import 'package:cms_app/models/medicine_model.dart';
 
 class MedicineWidget extends StatelessWidget {
   const MedicineWidget({super.key});
@@ -16,44 +19,38 @@ class MedicineWidget extends StatelessWidget {
   }
 }
 
-class MedicineCard extends StatefulWidget {
+class MedicineCard extends StatelessWidget {
   final int index;
-
-  const MedicineCard({super.key, required this.index});
-
-  @override
-  State<MedicineCard> createState() => _MedicineCardState();
-}
-
-class _MedicineCardState extends State<MedicineCard> {
-  late bool inCart = false;
+  final cartController = Get.put(CartController());
+  MedicineCard({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         leading: const Icon(Icons.medication),
-        title: Text(MedicineModel.medicines[widget.index].genericName),
+        title: Text(MedicineModel.medicines[index].genericName),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(MedicineModel.medicines[widget.index].activeIngredientName),
+            Text(MedicineModel.medicines[index].activeIngredientName),
             Row(
               children: [
-                Text("${MedicineModel.medicines[widget.index].priceOut3} VND"),
+                Text("${MedicineModel.medicines[index].priceOut3} VND"),
                 const Text("/"),
-                Text(MedicineModel.medicines[widget.index].volume3.toString())
+                Text(MedicineModel.medicines[index].volume3.toString())
               ],
             ),
           ],
         ),
         trailing: GestureDetector(
           onTap: () {
-            setState(() {
-              inCart = !inCart;
-            });
+            cartController.addMedicine(MedicineModel.medicines[index]);
+            print(
+                cartController.medicinesInCart[MedicineModel.medicines[index]]);
           },
-          child: inCart
+          child: (cartController.medicinesInCart
+                  .containsKey(MedicineModel.medicines[index]))
               ? const Icon(
                   Icons.assignment_add,
                   color: Colors.blue,

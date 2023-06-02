@@ -31,7 +31,8 @@ class MedicineModel {
     MedicineModel(
         id: 1,
         genericName: "Paracetamol",
-        activeIngredientName: "Acetaminophen",
+        activeIngredientName:
+            "Acetaminophenádsadsadasdsaddsdsdsdsdsdsdsdsdsdsdsdsd",
         priceIn1: 50,
         priceOut1: 80,
         priceOut2: 150,

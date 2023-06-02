@@ -1,3 +1,4 @@
+import 'package:cms_app/views/widgets/medicines_in_cart.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -6,7 +7,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Container()),
+      body: SafeArea(child: MedicinesInCart()),
     );
   }
 }
