@@ -28,37 +28,42 @@ class MedicineCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: const Icon(Icons.medication),
-        title: Text(MedicineModel.medicines[index].genericName),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(MedicineModel.medicines[index].activeIngredientName),
-            Row(
-              children: [
-                Text("${MedicineModel.medicines[index].priceOut3} VND"),
-                const Text("/"),
-                Text(MedicineModel.medicines[index].volume3.toString())
-              ],
-            ),
-          ],
-        ),
-        trailing: GestureDetector(
-            onTap: () {
-              cartController.addMedicine(MedicineModel.medicines[index]);
-              print(cartController
-                  .medicinesInCart[MedicineModel.medicines[index]]);
-            },
-            child: Obx(
-              () => (cartController.medicinesInCart
+          leading: const Icon(Icons.medication),
+          title: Text(MedicineModel.medicines[index].genericName),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(MedicineModel.medicines[index].activeIngredientName),
+              Row(
+                children: [
+                  Text("${MedicineModel.medicines[index].priceOut3} VND"),
+                  const Text("/"),
+                  Text(MedicineModel.medicines[index].volume3.toString())
+                ],
+              ),
+            ],
+          ),
+          trailing: Obx(
+            () => GestureDetector(
+              onTap: () {
+                if (cartController.medicinesInCart
+                    .containsKey(MedicineModel.medicines[index])) {
+                  cartController.removeMedicine(MedicineModel.medicines[index]);
+                } else {
+                  cartController.addMedicine(MedicineModel.medicines[index]);
+                }
+                print(cartController
+                    .medicinesInCart[MedicineModel.medicines[index]]);
+              },
+              child: (cartController.medicinesInCart
                       .containsKey(MedicineModel.medicines[index]))
                   ? const Icon(
                       Icons.assignment_add,
                       color: Colors.blue,
                     )
                   : const Icon(Icons.assignment_add),
-            )),
-      ),
+            ),
+          )),
     );
   }
 }
