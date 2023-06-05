@@ -11,14 +11,8 @@ class MedicineListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: [
-          const MedicineWidget(),
-          ElevatedButton(
-              onPressed: () => Get.to(() => const CartScreen()),
-              child: const Text('Go to Cart'))
-        ],
-      )),
+          child: MedicineWidget()),
+          floatingActionButton: FloatingActionButton(onPressed: () => Get.to(() => const CartScreen()),child: const Icon(Icons.shopping_cart)),
     );
   }
 }
