@@ -16,12 +16,15 @@ class MedicineWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
+            cursorColor: const Color.fromRGBO(77, 171, 150, 1),
             onChanged: (value) {
               cartController.filterMedicine(value);
             },
             style: const TextStyle(color: Colors.black),
             decoration: const InputDecoration(
               labelText: 'Search',
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(16))),
             ),
           ),
         ),
@@ -89,7 +92,7 @@ class MedicineCard extends StatelessWidget {
                       .containsKey(filteredMedicineList[index]))
                   ? const Icon(
                       Icons.assignment_add,
-                      color: Colors.blue,
+                      color: Color.fromRGBO(77, 171, 150, 1),
                     )
                   : const Icon(Icons.assignment_add),
             )),

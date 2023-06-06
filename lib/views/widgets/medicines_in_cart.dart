@@ -97,7 +97,8 @@ class MedicineInCartCard extends StatelessWidget {
                                           },
                                           child: const Icon(
                                             Icons.remove_circle,
-                                            color: Colors.black54,
+                                            color:
+                                                Color.fromRGBO(13, 12, 34, 1),
                                           )),
                                     ),
                                     Expanded(
@@ -117,7 +118,8 @@ class MedicineInCartCard extends StatelessWidget {
                                           },
                                           child: const Icon(
                                             Icons.add_circle,
-                                            color: Colors.black54,
+                                            color:
+                                                Color.fromRGBO(13, 12, 34, 1),
                                           )),
                                     )
                                   ],
@@ -148,6 +150,7 @@ class MedicineInCartCard extends StatelessWidget {
             ),
             const TextField(
               decoration: InputDecoration(
+                focusedBorder: UnderlineInputBorder(),
                 hintText: "Ghi chú",
                 isDense: true,
               ),
