@@ -5,6 +5,14 @@ class CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Card(
+      child: Row(
+        children: [
+          const Text("data"),
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.shopping_cart_checkout))
+        ],
+      ),
+    );
   }
 }
