@@ -59,11 +59,19 @@ class MedicineCard extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: const Icon(Icons.medication),
-        title: Text(filteredMedicineList[index].genericName),
+        title: Text(
+          filteredMedicineList[index].genericName,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+        ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(filteredMedicineList[index].activeIngredientName),
+            Text(
+              filteredMedicineList[index].activeIngredientName,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
             Row(
               children: [
                 Text("${filteredMedicineList[index].priceOut3} VND"),

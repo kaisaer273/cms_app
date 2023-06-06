@@ -51,26 +51,6 @@ class MedicineInCartCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Card(
-    //   child: ListTile(
-    //     leading: Text('${index+1}'),
-    //     title: Text(medicine.genericName),
-    //     subtitle: Text(medicine.activeIngredientName),
-    //     trailing: SizedBox(
-    //       width: context.width * 0.3,
-    //       height: double.infinity,
-    //       child: Row(
-    //         mainAxisAlignment: MainAxisAlignment.end,
-    //         children: [
-    //           IconButton(
-    //               onPressed: () {cartController.decreMedicine(medicine);}, icon: const Icon(Icons.remove_circle)),
-    //           Text('$quantity'.padLeft(2,'0')),
-    //           IconButton(onPressed: () {cartController.increMedicine(medicine);}, icon: const Icon(Icons.add_circle))
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
     return Card(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -97,47 +77,59 @@ class MedicineInCartCard extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: const TextStyle(
-                              fontWeight: FontWeight.w200,
+                              fontWeight: FontWeight.w300,
                               fontSize: 16,
                             )),
-                        Row(
-                          children: [
-                            const Expanded(flex: 1, child: Text("Số lượng")),
-                            Expanded(
-                              flex: 1,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  IconButton(
-                                      onPressed: () {
-                                        cartController.decreMedicine(medicine);
-                                      },
-                                      icon: const Icon(
-                                        Icons.remove_circle,
-                                        color: Colors.black54,
-                                      )),
-                                  Text(
-                                    '$quantity'.padLeft(2, '0'),
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  IconButton(
-                                      onPressed: () {
-                                        cartController.increMedicine(medicine);
-                                      },
-                                      icon: const Icon(
-                                        Icons.add_circle,
-                                        color: Colors.black54,
-                                      ))
-                                ],
-                              ),
-                            ),
-                            Expanded(
+                        Container(
+                          margin: const EdgeInsets.only(top: 4),
+                          child: Row(
+                            children: [
+                              const Expanded(flex: 1, child: Text("Số lượng")),
+                              Expanded(
                                 flex: 1,
-                                child: Container(
-                                    alignment: Alignment.centerRight,
-                                    child: Text(medicine.volume3)))
-                          ],
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            cartController
+                                                .decreMedicine(medicine);
+                                          },
+                                          child: const Icon(
+                                            Icons.remove_circle,
+                                            color: Colors.black54,
+                                          )),
+                                    ),
+                                    Expanded(
+                                      child: Center(
+                                        child: Text(
+                                          '$quantity'.padLeft(2, '0'),
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            cartController
+                                                .increMedicine(medicine);
+                                          },
+                                          child: const Icon(
+                                            Icons.add_circle,
+                                            color: Colors.black54,
+                                          )),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                      alignment: Alignment.centerRight,
+                                      child: Text(medicine.volume3)))
+                            ],
+                          ),
                         ),
                         Container(
                             alignment: Alignment.centerRight,
