@@ -7,6 +7,8 @@ class MedicineListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MedicineWidget();
+    return SafeArea(
+      child: MedicineWidget(),
+    );
   }
 }

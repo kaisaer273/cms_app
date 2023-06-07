@@ -6,7 +6,7 @@ class CustomerForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
+      elevation: 2,
       child: Container(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -22,6 +22,7 @@ class CustomerForm extends StatelessWidget {
               children: const [
                 Expanded(
                   child: TextField(
+                    textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       isDense: true,
                       hintText: "Tuổi",
@@ -32,6 +33,7 @@ class CustomerForm extends StatelessWidget {
                 Expanded(child: Text("tuổi")),
                 Expanded(
                   child: TextField(
+                    textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       isDense: true,
                       hintText: "Cân nặng",

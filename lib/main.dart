@@ -1,10 +1,10 @@
-import 'package:cms_app/views/screens/cart_screen.dart';
-import 'package:cms_app/views/screens/chart_screen.dart';
-import 'package:cms_app/views/screens/history_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:cms_app/views/screens/medicine_list_screen.dart';
+import 'package:cms_app/views/screens/cart_screen.dart';
+import 'package:cms_app/views/screens/chart_screen.dart';
+import 'package:cms_app/views/screens/history_order_screen.dart';
 
 void main() {
   runApp(
