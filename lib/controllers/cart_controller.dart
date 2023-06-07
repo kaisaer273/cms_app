@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../models/medicine_model.dart';
 
 class CartController extends GetxController {
-  var _medicinesInCart = {}.obs;
+  final Map<dynamic, dynamic> _medicinesInCart = {}.obs;
   var filteredMedicineList = [].obs; // Danh sách đã lọc
 
   @override

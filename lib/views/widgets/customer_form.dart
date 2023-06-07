@@ -22,6 +22,7 @@ class CustomerForm extends StatelessWidget {
               children: const [
                 Expanded(
                   child: TextField(
+                    keyboardType: TextInputType.number,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       isDense: true,
@@ -33,6 +34,8 @@ class CustomerForm extends StatelessWidget {
                 Expanded(child: Text("tuổi")),
                 Expanded(
                   child: TextField(
+                    keyboardType:
+                        TextInputType.numberWithOptions(decimal: true),
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       isDense: true,

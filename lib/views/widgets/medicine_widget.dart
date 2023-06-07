@@ -50,7 +50,7 @@ class MedicineWidget extends StatelessWidget {
 class MedicineCard extends StatelessWidget {
   final int index;
   final CartController cartController;
-  final filteredMedicineList;
+  final List<dynamic> filteredMedicineList;
   const MedicineCard(
       {super.key,
       required this.index,

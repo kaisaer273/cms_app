@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartTotal extends StatelessWidget {
-  CartController cartController = Get.find();
+  final CartController cartController = Get.find();
   CartTotal({super.key});
 
   @override

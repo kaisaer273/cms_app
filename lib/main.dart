@@ -55,6 +55,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // ignore: prefer_const_constructors
+      floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        onPressed: () {},
+        backgroundColor: const Color.fromRGBO(77, 171, 150, 1),
+        child: const Icon(Icons.medical_services_outlined),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
       backgroundColor: const Color.fromRGBO(231, 233, 235, 1),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -62,22 +71,22 @@ class _MyAppState extends State<MyApp> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.category_outlined,
+              Icons.menu_outlined,
             ),
             label: 'Thuốc',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.shopping_cart_outlined,
+              Icons.shopping_bag_outlined,
             ),
             label: 'Giỏ hàng',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.document_scanner_outlined),
+            icon: Icon(Icons.article_outlined),
             label: 'Đơn thuốc',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_chart_outlined),
+            icon: Icon(Icons.bar_chart_outlined),
             label: 'Thống kê',
           ),
         ],
@@ -87,3 +96,68 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: () {
+//           //code to execute on button press
+//         },
+//         backgroundColor: const Color.fromRGBO(77, 171, 150, 1),
+//         child: const Icon(Icons.medical_services_outlined), //icon inside button
+//       ),
+//       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+//       bottomNavigationBar: BottomAppBar(
+//         color: Colors.redAccent,
+//         shape: const CircularNotchedRectangle(),
+//         notchMargin: 5,
+//         child: Row(
+//           mainAxisSize: MainAxisSize.max,
+//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//           children: <Widget>[
+//             IconButton(
+//               icon: const Icon(
+//                 Icons.list_alt_outlined,
+//                 color: Colors.white,
+//               ),
+//               onPressed: () {
+//                 Get.to(const MedicineListScreen());
+//               },
+//             ),
+//             IconButton(
+//               icon: const Icon(
+//                 Icons.shopping_bag_outlined,
+//                 color: Colors.white,
+//               ),
+//               onPressed: () {
+//                 Get.to(const CartScreen());
+//               },
+//             ),
+//             IconButton(
+//               icon: const Icon(
+//                 Icons.article_outlined,
+//                 color: Colors.white,
+//               ),
+//               onPressed: () {
+//                 Get.to(const HistoryOrderScreen());
+//               },
+//             ),
+//             IconButton(
+//               icon: const Icon(
+//                 Icons.bar_chart_outlined,
+//                 color: Colors.white,
+//               ),
+//               onPressed: () {
+//                 Get.to(const ChartScreen());
+//               },
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
